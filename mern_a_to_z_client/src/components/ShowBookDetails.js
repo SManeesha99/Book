@@ -9,12 +9,14 @@ class showBookDetails extends Component {
     this.state = {
       book: {}
     };
-  }
 
+    
+  }
+  
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('http://localhost:8082/api/book/'+this.props.match.params.id)
+      .get('http://localhost:8070/api/book/'+this.state.id)
       .then(res => {
         // console.log("Print-showBookDetails-API-response: " + res.data);
         this.setState({
@@ -28,7 +30,7 @@ class showBookDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('http://localhost:8082/api/book/'+id)
+      .delete('http://localhost:8070/api/book/'+id)
       .then(res => {
         this.props.history.push("/");
       })
@@ -42,6 +44,7 @@ class showBookDetails extends Component {
 
     const book = this.state.book;
     let BookItem = <div>
+      
       <table className="table table-hover table-dark">
         {/* <thead>
           <tr>

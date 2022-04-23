@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 // @route GET api/books
 // @description add/save book
 // @access Public
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
   Book.create(req.body)
     .then(book => res.json({ msg: 'Book added successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to add this book' }));

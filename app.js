@@ -10,7 +10,7 @@ app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => res.send('Hello world!'));
 
-app.use('/api/books', books);
+app.use('/api/book', books);
 
 const port = process.env.PORT || 8070;
 
