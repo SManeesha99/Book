@@ -16,7 +16,7 @@ class showBookDetails extends Component {
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('http://localhost:8070/api/book/'+this.state.id)
+      .get('http://localhost:8070/api/book/get/'+this.state._id)
       .then(res => {
         // console.log("Print-showBookDetails-API-response: " + res.data);
         this.setState({
