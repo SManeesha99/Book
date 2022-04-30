@@ -23,10 +23,26 @@ router.get('/', (req, res) => {
 // @route GET api/books/:id
 // @description Get single book by id
 // @access Public
-router.get('/get/:id', (req, res) => {
-  Book.findById(req.params.id)
-    .then(book => res.json(book))
-    .catch(err => res.status(404).json({ nobookfound: 'No Book found' }));
+// router.get('/get/:id', (req, res) => {
+//   Book.findById(req.params.id)
+//     .then(book => res.json(book))
+//     .catch(err => res.status(404).json({ nobookfound: 'No Book found' }));
+// });
+
+router.get("/get/:id",(req,res)=>{
+
+  let bookId = req.params.id;
+  
+  Book.findById(bookId,(err,book)=>{
+      if(err){
+          return res.status(400).json({success:false, err});
+      }
+
+      return res.status(200).json({
+          success:true,
+          book
+      });
+  });
 });
 
 // @route GET api/books
